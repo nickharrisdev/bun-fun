@@ -4,7 +4,12 @@ import { cubeConundrumPt1 } from "./day-2/day-2-pt1.js";
 import { cubeConundrumPt2 } from "./day-2/day-2-pt2.js";
 import { gearRatiosPt1 } from "./day-3/day-3-pt1.js";
 
-const dayNumberToSolution = {
+interface ScriptAndSolution {
+  script: () => number;
+  correctAnswer: number | string;
+}
+
+const dayNumberToSolution: { [key: number | string]: ScriptAndSolution[] } = {
   1: [
     {
       script: getSumOfCalibrationValues,
@@ -26,10 +31,10 @@ const dayNumber = Number(process.argv[2]);
 
 if (dayNumber) {
   // fixme
-  console.log(dayNumberToSolution[dayNumber]?.());
+  // console.log(dayNumberToSolution[dayNumber]?.());
 } else {
   const allDays = Object.keys(dayNumberToSolution);
-  allDays.forEach((day) => {
+  allDays.forEach((day: string) => {
     dayNumberToSolution[day].forEach((part, i) => {
       const computedAnswer = part?.script();
       const isCorrect = computedAnswer === part?.correctAnswer;
