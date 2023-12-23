@@ -2,6 +2,9 @@
   "name": "bun-fun",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "advent:dev": "bun --watch run advent-of-code-2023/index.ts"
+  },
   "devDependencies": {
     "bun-types": "latest"
   },
